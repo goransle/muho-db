@@ -52,6 +52,7 @@ keystone.set('nav', {
 	'posts': ['posts', 'post-categories'],
 	'users': 'users'
 });
+keystone.set('cookie secret','simenmadsen420')
 
 // Start Keystone to connect to your database and initialise the web server
 
