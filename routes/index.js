@@ -36,8 +36,8 @@ exports = module.exports = function(app) {
 
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/pottermore/:category?', routes.views.blog);
-	app.get('/pottermore/post/:post', routes.views.post);
+	app.get('/galleri/:category?', routes.views.blog);
+	app.get('/galleri/post/:post', routes.views.post);
 	//app.get('/gallery', routes.views.gallery);
 	//app.get('/amerikabrev', routes.views.amerikabrev);
 
