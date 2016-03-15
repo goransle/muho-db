@@ -12,11 +12,7 @@ mixin post(post)
 			img(src="./images/" + post.image.filename).img.pull-right
 		p!= post.content.brief
 		if post.content.extended
-<<<<<<< HEAD
 			p.read-more: a(href='/galleri/post/' + post.slug) Les mer...
-=======
-			p.read-more: a(href='/galleri/post/' + post.slug) Les mer...
->>>>>>> origin/master
 
 block intro
 	.container
