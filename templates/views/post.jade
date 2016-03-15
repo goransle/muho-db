@@ -23,8 +23,8 @@ block content
 						if data.post.author
 							| by #{data.post.author.name.first}
 
-						if data.post.sources
-							p: a(href=data.post.sources) Kildenavn
+						if data.post.content.sources
+							p: a(href=data.post.content.sources) Kildenavn
 				.post
 					if data.post.image.exists
 						.image-wrap: img(src="/images/" + data.post.image.filename).img-responsive
