@@ -10,7 +10,7 @@ block content
 			else
 				header
 					h1= data.post.title
-					h5 Posted
+					h5 Posted 
 						if data.post.publishedDate
 							| on #{data.post._.publishedDate.format('MMMM Do, YYYY')}
 						if data.post.categories && data.post.categories.length
@@ -22,6 +22,9 @@ block content
 								else
 						if data.post.author
 							| by #{data.post.author.name.first}
+
+						if data.post.sources
+						p: a(href=data.post.sources) Kildenavn
 				.post
 					if data.post.image.exists
 						.image-wrap: img(src="/images/" + data.post.image.filename).img-responsive

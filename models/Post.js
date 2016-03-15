@@ -14,8 +14,10 @@ var Post = new keystone.List('Post', {
 Post.add({
 	title: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'User', index: true },
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+	//author: { type: Types.Relationship, ref: 'User', index: true },
+	//publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+	sources: { type: Types.Url, many:true },
+	year: { type: Types.Number, index: true },
 	image: { type: Types.LocalFile,
         dest: './public/images',
         prefix: '/images',
