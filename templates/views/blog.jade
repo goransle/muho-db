@@ -2,27 +2,27 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		h2: a(href='/pottermore/post/' + post.slug)= post.title
+		h2: a(href='/galleri/post/' + post.slug)= post.title
 		p
 			if post.categories && post.categories.length
 				each cat, i in post.categories
-					a(href='/pottermore/' + cat.key)= cat.name
+					a(href='/galleri/' + cat.key)= cat.name
 					if i < post.categories.length - 1
 		if post.image.exists
 			img(src="./images/" + post.image.filename).img.pull-right
 		p!= post.content.brief
 		if post.content.extended
-			p.read-more: a(href='/pottermore/post/' + post.slug) Read more...
+			p.read-more: a(href='/galleri/post/' + post.slug) Les mer...
 
 block intro
 	.container
-		//h1= data.category ? data.category.name : 'pottermore'
+		//h1= data.category ? data.category.name : 'galleri'
 		if data.categories.length
 			nav
 					ul <h4>Tema</h4>
 						each cat in data.categories
 							li
-								a(href='/pottermore/' + cat.key, class=data.category && data.category.id == cat.id)= cat.name
+								a(href='/galleri/' + cat.key, class=data.category && data.category.id == cat.id)= cat.name
 
 block content
 	.container: .row
@@ -39,7 +39,7 @@ block content
 							|  of
 							strong #{data.posts.total}
 							|  posts.
-					.pottermore
+					.galleri
 						each post in data.posts.results
 							+post(post)
 
