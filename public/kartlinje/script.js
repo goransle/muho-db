@@ -19,7 +19,7 @@ var currentEpisode = 0;
 episoder.push(["Introduksjon", [60.397544, 5.321792], "intro.html",1]);
 episoder.push(["2. mai", [60.397544, 5.321792], "baaten.html",1]);
 episoder.push(["2. mai", [53.741275, -0.279313], "test.html"]);
-episoder.push(["7. mai", [53.401308, -2.995094], "test.html"]);
+episoder.push(["7. mai", [53.401308, -2.995094], "liverpool.html"]);
 episoder.push(["17. mai", [42.380246, -71.057279], "test.html"]);
 episoder.push(["17. mai ++", [44.850110, -94.081004], "test.html"]);
 //iterere over episoder
@@ -58,24 +58,29 @@ $(markers).click(function() {
 });
 function episodeHopper(id){
   currentEpisode = parseInt(id);
+  //legge til brittania
+  if(currentEpisode == 3 ||currentEpisode == 2){
+    map.addLayer(britain);
+  }
+  else{
+    map.removeLayer(britain);
+  }
   map.panTo(markers[currentEpisode].getLatLng());
+  if (currentEpisode == 2) {
+      map.setZoom(6);    }
+  if (currentEpisode == 3) {
+      map.setZoom(11);
+    }
+  if (currentEpisode == 4) {
+    map.setZoom(2);
+    map.removeLayer(britain);
+    }
+    if (currentEpisode == 5) {
+    }
   if(currentEpisode != 0){
     L.polygon([
       markers[id].getLatLng(), markers[id-1].getLatLng()
     ]).addTo(map);
-    if (id == 2) {
-      map.zoomIn(4);
-      map.addLayer(britain);
-    }
-    if (id == 3) {
-      map.zoomOut(3);
-      map.removeLayer(britain);
-    }
-    if (id == 4) {
-    }
-    if (id == 5) {
-      map.zoomOut(3);
-    }
   }
   $("section").hide();
   $("article").show();
