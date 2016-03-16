@@ -2,11 +2,11 @@ extends ../layouts/default
 
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		h2: a(href='/galleri/post/' + post.slug)= post.title
+		h2.artikkelTittel: a(href='/galleri/post/' + post.slug)= post.title
 		p
 			if post.categories && post.categories.length
 				each cat, i in post.categories
-					a(href='/galleri/' + cat.key)= cat.name
+					a.artikkelKategori(href='/galleri/' + cat.key)= cat.name
 					if i < post.categories.length - 1
 		if post.image.exists
 			img(src="./images/" + post.image.filename).img.pull-right
@@ -23,6 +23,8 @@ block intro
 						each cat in data.categories
 							li
 								a(href='/galleri/' + cat.key, class=data.category && data.category.id == cat.id)= cat.name
+					hr
+					//Linje for å dele inn tema og artikler
 
 block content
 	.container: .row
@@ -42,7 +44,8 @@ block content
 					.galleri
 						each post in data.posts.results
 							+post(post)
-
+							hr 
+							//Linje mellom hver artikkel
 					if data.posts.totalPages > 1
 						ul.pagination
 							if data.posts.previous
