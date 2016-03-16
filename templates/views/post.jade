@@ -10,6 +10,11 @@ block content
 			else
 				header
 					h1= data.post.title
+				.post
+					if data.post.image.exists
+						.image-wrap: img(src="/images/" + data.post.image.filename).img-responsive
+					!= data.post.content.full
+
 					h5 Posted 
 						if data.post.publishedDate
 							| on #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
@@ -21,21 +26,24 @@ block content
 									| ,
 								else
 						if data.post.author
-							| by #{data.post.author.name.first}
+							|  by #{data.post.author.name.first}
 
-						if data.post.content.sources
-							p: a(href=data.post.content.sources) Kildenavn
-				.post
-					if data.post.image.exists
-						.image-wrap: img(src="/images/" + data.post.image.filename).img-responsive
-					!= data.post.content.full
+						if data.post.content.textSources
+							p  Kilder: #{data.post.content.textSources}
+
+						if data.post.content.onlineSources
+							p: a(href=data.post.content.onlineSources) Kildenavn
 
 				hr
-
+				//Skal erstattes med en algoritme som henter nye artikkeltitler, bilder og beskrivelser basert på kategori, ikke tre statiske placeholders
 				section#andreArtiklerSection
-					p Andre artikler
+					p#andreArtiklerTekst Andre artikler
 					section
-						//img(src='').img-responsive
-						//brief text placement
+						img(src='http://www.clipartlord.com/wp-content/uploads/2013/01/party-hat2.png' width='150px' alt='placeholder').img-responsive
+						p.andreArtiklerTittel: a(href='/galleri') Placeholder text
+						img(src='http://images.clipartpanda.com/black-and-white-party-hat-clipart-party-hat-clipart-black-and-white-2.jpg' width='150px' alt='placeholder').img-responsive
+						p.andreArtiklerTittel: a(href='/galleri') Placeholder text
+						img(src='http://www.clipartbest.com/cliparts/9cR/R5z/9cRR5zEMi.png' width='150px' alt='placeholder').img-responsive
+						p.andreArtiklerTittel: a(href='/galleri') Placeholder text
 
 

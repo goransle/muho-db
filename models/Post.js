@@ -25,7 +25,8 @@ Post.add({
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
-		sources: { type: Types.Url},
+		textSources:{ type: String},
+		onlineSources: { type: Types.Url},
 		eventYear: { type: Types.Number}
 	},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
