@@ -3,7 +3,7 @@ exports.create = {
 		{'title': 'Test', 'state': 'published', 'categories': 'Amerikabrev'}
 	],
 	Post: [
-		{'title': 'Test2', 'state': 'published', 'categories': 'Bakgrunn', 'content':{
+		{'title': 'Test2', 'state': 'published', 'content':{
 			'brief': "hello", 'extended': "hello world"
 		}
 	}
