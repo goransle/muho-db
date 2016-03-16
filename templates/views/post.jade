@@ -15,7 +15,8 @@ block content
 						.image-wrap: img(src="/images/" + data.post.image.filename).img-responsive
 					!= data.post.content.full
 
-					h5 Publisert 
+					h5.stylaTittel Publisert
+					p 
 						if data.post.publishedDate
 							| den #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
 						if data.post.categories && data.post.categories.length
@@ -29,7 +30,7 @@ block content
 							|  av #{data.post.author.name.first}
 
 						if data.post.content.textSources || data.post.content.onlineSources
-							p Kilder:
+							h5.stylaTittel Kilder:
 							p #{data.post.content.textSources}
 							p: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
 
