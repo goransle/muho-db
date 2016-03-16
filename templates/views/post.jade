@@ -28,11 +28,14 @@ block content
 						if data.post.author
 							|  by #{data.post.author.name.first}
 
-						if data.post.content.textSources
-							p  Kilder: #{data.post.content.textSources}
+						if data.post.content.textSources || data.post.content.onlineSources
+							p Kilder:
+							p #{data.post.content.textSources}
+							p: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
 
-						if data.post.content.onlineSources
-							p: a(href=data.post.content.onlineSources) Kildenavn
+						//Kodebiten over viser alle tilgjengelige kilder, erstattet kodebiten under + lignende kodebit for content.textSources
+						//if data.post.content.onlineSources
+						//	p: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
 
 				hr
 				//Skal erstattes med en algoritme som henter nye artikkeltitler, bilder og beskrivelser basert på kategori, ikke tre statiske placeholders
