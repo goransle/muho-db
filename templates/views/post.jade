@@ -14,7 +14,7 @@ block content
 					if data.post.image.exists
 						.image-wrap: img(src="/images/" + data.post.image.filename).img-responsive
 					!= data.post.content.full
-					
+
 					h5 Posted 
 						if data.post.publishedDate
 							| on #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
@@ -28,8 +28,11 @@ block content
 						if data.post.author
 							|  by #{data.post.author.name.first}
 
-						if data.post.content.sources
-							p: a(href=data.post.content.sources) Kildenavn
+						if data.post.content.textSources
+							p  Kilder: #{data.post.content.textSources}
+
+						if data.post.content.onlineSources
+							p: a(href=data.post.content.onlineSources) Kildenavn
 
 				hr
 				//Skal erstattes med en algoritme som henter nye artikkeltitler, bilder og beskrivelser basert på kategori, ikke tre statiske placeholders
