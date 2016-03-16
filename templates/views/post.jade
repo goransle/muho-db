@@ -1,5 +1,7 @@
 extends ../layouts/default
 
+// script {alert(post.Name); Testing
+
 block content
 	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
 		article
@@ -21,7 +23,7 @@ block content
 									| ,
 								else
 						if data.post.author
-							| by #{data.post.author.name.first}
+							|  by #{data.post.author.name.first}
 
 						if data.post.content.sources
 							p: a(href=data.post.content.sources) Kildenavn
