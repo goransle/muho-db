@@ -15,18 +15,18 @@ block content
 						.image-wrap: img(src="/images/" + data.post.image.filename).img-responsive
 					!= data.post.content.full
 
-					h5 Posted 
+					h5 Publisert 
 						if data.post.publishedDate
-							| on #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
+							| den #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
 						if data.post.categories && data.post.categories.length
-							| in 
+							| i 
 							each cat, cat_i in data.post.categories
 								a(href='/galleri/' + cat.key)= cat.name
 								if cat_i < data.post.categories.length - 1
 									| ,
 								else
 						if data.post.author
-							|  by #{data.post.author.name.first}
+							|  av #{data.post.author.name.first}
 
 						if data.post.content.textSources || data.post.content.onlineSources
 							p Kilder:
