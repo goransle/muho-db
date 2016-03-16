@@ -16,7 +16,7 @@ block content
 					!= data.post.content.full
 
 					h5.stylaTittel Publisert
-					p 
+					p.pubMeta 
 						if data.post.publishedDate
 							| den #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
 						if data.post.categories && data.post.categories.length
@@ -31,8 +31,8 @@ block content
 
 						if data.post.content.textSources || data.post.content.onlineSources
 							h5.stylaTittel Kilder:
-							p #{data.post.content.textSources}
-							p: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
+							p.pubMeta #{data.post.content.textSources}
+							p.pubMeta: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
 
 						//Kodebiten over viser alle tilgjengelige kilder, erstattet kodebiten under + lignende kodebit for content.textSources
 						//if data.post.content.onlineSources
