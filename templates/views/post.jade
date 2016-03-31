@@ -16,11 +16,11 @@ block content
 					!= data.post.content.full
 
 					h5.stylaTittel Publisert
-					p.pubMeta 
+					p.pubMeta
 						if data.post.publishedDate
-							|  #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
+							|  #{data.post._.publishedDate.format('MMMM Do, YYYY')}
 						if data.post.categories && data.post.categories.length
-							| i 
+							| i
 							each cat, cat_i in data.post.categories
 								a(href='/galleri/' + cat.key)= cat.name
 								if cat_i < data.post.categories.length - 1
@@ -39,11 +39,13 @@ block content
 						//	p: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
 
 				hr
-				//Skal erstattes med en algoritme som henter nye artikkeltitler, bilder og beskrivelser basert på kategori, ikke tre statiske placeholders
+				// Lister alle andre poster. Snevre inn til 3 innenfor samme kategori med random shit going on
+				- var posts = data.posts
 				section#andreArtiklerSection
-					p.andreArtiklerTittel: a(href='/galleri') Tyskerbryggen
-						img(src='http://tinyurl.com/hlhljth').img-responsive
-					p.andreArtiklerTittel: a(href='/galleri') Stavangerfjord
-						img(src='http://tinyurl.com/gop3br3').img-responsive
-					p.andreArtiklerTittel: a(href='/galleri') Johan Nordahl
-						img(src='http://tinyurl.com/h3m4ys2').img-responsive
+					each val in posts
+						if data.post.categories
+							p.andreArtiklerTittel: a(href='/galleri/post/'+val.slug)=val.title
+								if val.image.path
+									img(src="/images/" + val.image.filename).img-responsive
+								else
+									img(src="/images/Logo.png")
