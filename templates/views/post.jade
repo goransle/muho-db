@@ -41,11 +41,13 @@ block content
 				hr
 				// Lister alle andre poster. Snevre inn til 3 innenfor samme kategori med random shit going on
 				- var posts = data.posts
-				section#andreArtiklerSection
+				section#andreArtikler
+					h2: | Relaterte artikler
 					each val in posts
 						if data.post.categories
-							p.andreArtiklerTittel: a(href='/galleri/post/'+val.slug)=val.title
+							.artikkel
+								h3: a(href='/galleri/post/'+val.slug)=val.title
 								if val.image.path
-									img(src="/images/" + val.image.filename).img-responsive
+									img(src="/images/" + val.image.filename)
 								else
 									img(src="/images/Logo.png")
