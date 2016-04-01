@@ -10,5 +10,5 @@
   * servershit
     * Få ting på nett
   *Dokumentasjo
-	*Strategirapport
-* BRUKERTESTING!!!!!!!!!
+	* Strategirapport
+	* BRUKERTESTING!!!!!!!!!
