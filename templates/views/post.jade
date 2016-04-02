@@ -41,13 +41,28 @@ block content
 				hr
 				// Lister alle andre poster. Snevre inn til 3 innenfor samme kategori med random shit going on
 				- var posts = data.posts
+				- var thisPost = data.post
+				- var kategorier = []
+				- var tatt =[]
+				- kategorier.pop()
+					h2: | Relaterte artikler:<br/>
 				section#andreArtikler
-					h2: | Relaterte artikler
-					each val in posts
-						if data.post.categories
-							.artikkel
-								h3: a(href='/galleri/post/'+val.slug)=val.title
-								if val.image.path
-									img(src="/images/" + val.image.filename)
-								else
-									img(src="/images/Logo.png")
+					each x in data.post.categories
+							- kategorier.push(x._id.toString())
+					//p= kategorier
+
+					// denne kan nok gjøres bedre
+					each y in data.posts
+						- var x = 0
+						while x < y.categories.length
+							if tatt.indexOf(y.slug.toString()) == -1
+								if kategorier.indexOf(y.categories[x].toString()) != -1 && y.slug != thisPost.slug && tatt.length < 3
+									- tatt.push(y.slug.toString())
+									// her er artikkelen
+									.artikkel
+										h3: a(href='/galleri/post/'+y.slug)=y.title
+										if y.image.path
+											img(src="/images/" + y.image.filename)
+										else
+											img(src="/images/Logo.png")
+							- x++
