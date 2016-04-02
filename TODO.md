@@ -8,8 +8,8 @@
       * Halvvegs ferdig, treng litt "randomness"
     * Design
       * Framside
-    * Bildeupload
-      * Upload på plass, treng visning
+    * ~~Bildeupload~~
+      * ~~Upload på plass, treng visning~~
   * servershit
     * Få ting på nett
   * Dokumentasjon

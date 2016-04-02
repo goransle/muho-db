@@ -2,9 +2,9 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * PostImage Model
- * ==================
- */
+* PostImage Model
+* ==================
+*/
 
 var PostImage = new keystone.List('PostImage', {
 	map: { name: 'title' },
@@ -12,17 +12,17 @@ var PostImage = new keystone.List('PostImage', {
 });
 
 PostImage.add({
-		title: { type: String, required: true },
+	title: { type: String, required: true },
 	image: { type: Types.LocalFile,
-        dest: './public/images',
-        prefix: '/images',
-        format: function(item, file){
-            return '<img src="' + file.href + '" style="max-width: 300px">'
-        }},
-	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-	},
-	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
-});
+		dest: './public/images',
+		prefix: '/images',
+		format: function(item, file){
+			return '<img src="' + file.href + '" style="max-width: 300px;max-height:300px"><br/>' +"&lt;img src='" + file.href + "'&gt";
+		}},
+		content: {
+			brief: { type: Types.Html, wysiwyg: true, height: 150 },
+		},
+		categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
+	});
 
-PostImage.register();
+	PostImage.register();
