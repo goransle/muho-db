@@ -9,3 +9,6 @@
     * Bildeupload
   * servershit
     * Få ting på nett
+  * Dokumentasjon
+	* Strategirapport
+	* BRUKERTESTING!!!!!!!!!
