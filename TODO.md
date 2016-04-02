@@ -5,10 +5,14 @@
     * Animasjoner
   * CMS
     * Relaterte artikler
+      * Halvvegs ferdig, treng litt "randomness"
     * Design
+      * Framside
     * Bildeupload
+      * Upload på plass, treng visning
   * servershit
     * Få ting på nett
   * Dokumentasjon
+    * lol
 	* Strategirapport
 	* BRUKERTESTING!!!!!!!!!

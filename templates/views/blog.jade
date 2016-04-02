@@ -6,10 +6,10 @@ mixin post(post)
 		p
 			if post.categories && post.categories.length
 				each cat, i in post.categories
-					a.artikkelKategori(href='/galleri/' + cat.key)= cat.name
+					//a.artikkelKategori(href='/galleri/' + cat.key)= cat.name
 					if i < post.categories.length - 1
 		if post.image.exists
-			img(src="./images/" + post.image.filename).img.pull-right
+			img(src="/images/" + post.image.filename)
 		p!= post.content.brief
 		if post.content.extended
 			p.read-more: a(href='/galleri/post/' + post.slug) Les mer...
@@ -19,32 +19,24 @@ block intro
 		//h1= data.category ? data.category.name : 'galleri'
 		if data.categories.length
 			nav
-					ul <h4>Tema</h4>
-						each cat in data.categories
-							li
-								a(href='/galleri/' + cat.key, class=data.category && data.category.id == cat.id)= cat.name
+				ul <h2>Tema:</h2>
+					each cat in data.categories
+						li
+							a(href='/galleri/' + cat.key, class=data.category && data.category.id == cat.id)= cat.name
 					hr
 					//Linje for å dele inn tema og artikler
 
 block content
-	.container: .row
-		.col-sm-8.col-md-9
+	.container
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
 			else
 				if data.posts.results.length
 					if data.posts.totalPages > 1
-						h4.text-weight-normal Showing
-							strong #{data.posts.first}
-							|  to
-							strong #{data.posts.last}
-							|  of
-							strong #{data.posts.total}
-							|  posts.
 					.galleri
 						each post in data.posts.results
 							+post(post)
-							hr 
+							hr
 							//Linje mellom hver artikkel
 					if data.posts.totalPages > 1
 						ul.pagination

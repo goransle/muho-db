@@ -19,6 +19,7 @@ Post.add({
 	image: { type: Types.LocalFile,
         dest: './public/images',
         prefix: '/images',
+				ref: 'PostImage',
         format: function(item, file){
             return '<img src="' + file.href + '" style="max-width: 300px">'
         }},
