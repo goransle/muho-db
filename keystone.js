@@ -5,6 +5,16 @@
 // Require keystone
 var keystone = require('keystone');
 
+if (process.env.OPENSHIFT_MONGODB_DB_URL) {
+  keystone.set('mongo', process.env.OPENSHIFT_MONGODB_DB_URL);
+}
+if (process.env.OPENSHIFT_NODEJS_IP) {
+  keystone.set('host', process.env.OPENSHIFT_NODEJS_IP);
+}
+if (process.env.OPENSHIFT_NODEJS_PORT) {
+  keystone.set('port', process.env.OPENSHIFT_NODEJS_PORT);
+}
+
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
