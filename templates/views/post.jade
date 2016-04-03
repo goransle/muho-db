@@ -43,7 +43,8 @@ block content
 				- var posts = data.posts
 				- var thisPost = data.post
 				- var kategorier = []
-				- var tatt =[]
+				- var artikler =[]
+				- var artikkel
 				- kategorier.pop()
 					h2: | Relaterte artikler:<br/>
 				section#andreArtikler
@@ -55,14 +56,21 @@ block content
 					each y in data.posts
 						- var x = 0
 						while x < y.categories.length
-							if tatt.indexOf(y.slug.toString()) == -1
-								if kategorier.indexOf(y.categories[x].toString()) != -1 && y.slug != thisPost.slug && tatt.length < 3
-									- tatt.push(y.slug.toString())
-									// her er artikkelen
-									.artikkel
-										h3: a(href='/galleri/post/'+y.slug)=y.title
-										if y.image.path
-											img(src="/images/" + y.image.filename)
-										else
-											img(src="/images/Logo.png")
+							if artikler.indexOf(y) == -1
+								if kategorier.indexOf(y.categories[x].toString()) != -1 && y.slug != thisPost.slug
+									- artikler.push(y)
 							- x++
+
+					//Shuffler artikler
+					- function shuffle(a){var j, x, i;for(i = a.length; i; i -= 1){j = Math.floor(Math.random() * i);x = a[i - 1];a[i - 1] = a[j];a[j] = x;}}
+					- shuffle(artikler)
+					// Velger ut dei tre fyrste
+					each i in [0, 1, 2]
+						- var artikkel = artikler[i]
+						if artikkel != null
+							.artikkel
+								h3: a(href='/galleri/post/'+artikkel.slug)=artikkel.title
+								if artikkel.image.path
+									img(src="/images/" + artikkel.image.filename)
+								else
+									img(src="/images/Logo.png")

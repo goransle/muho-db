@@ -10,8 +10,8 @@
       * Framside
     * ~~Bildeupload~~
       * ~~Upload på plass, treng visning~~
-  * servershit
-    * Få ting på nett
+  * ~~servershit~~
+    * ~~Få ting på nett~~
   * Dokumentasjon
     * lol
 	* Strategirapport
