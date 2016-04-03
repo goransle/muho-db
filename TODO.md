@@ -4,8 +4,9 @@
     * Dele opp i tre(?) biter
     * Animasjoner
   * CMS
-    * ~~Relaterte artikler~~
+    * Relaterte artikler
       * ~~Halvvegs ferdig, treng litt "randomness"~~
+      * Om ingen artikler, lenke tilbake til "galleriet"
     * Design
       * Framside
     * ~~Bildeupload~~
