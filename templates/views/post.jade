@@ -3,8 +3,6 @@ extends ../layouts/default
 block content
 	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
 		article
-			p: a(href='/galleri') &larr; Tilbake til galleriet
-			hr
 			if !data.post
 				h2 Invalid Post.
 			else
@@ -38,8 +36,9 @@ block content
 						//Kodebiten over viser alle tilgjengelige kilder, erstattet kodebiten under + lignende kodebit for content.textSources
 						//if data.post.content.onlineSources
 						//	p: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
-
 				hr
+				p: a(href='/galleri') &larr; Tilbake til galleriet
+
 				// Lister alle andre poster. Snevre inn til 3 innenfor samme kategori med random shit going on
 				- var posts = data.posts
 				- var thisPost = data.post
