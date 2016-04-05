@@ -46,7 +46,7 @@ block content
 				- var artikler =[]
 				- var artikkel
 				- kategorier.pop()
-					h2: | Relaterte artikler:<br/>
+					h2#relArt: | <span id="foran">–––</span> Relaterte artikler <span id="bak">–––</span> <br/>
 				section#andreArtikler
 					each x in data.post.categories
 							- kategorier.push(x._id.toString())
