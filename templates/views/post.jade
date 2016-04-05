@@ -13,7 +13,8 @@ block content
 				.post
 					if data.post.image.exists
 						.image-wrap: img(src="/images/" + data.post.image.filename).img-responsive
-					!= data.post.content.full
+					.postText
+						!= data.post.content.full
 
 					h5.stylaTittel Publisert
 					p.pubMeta
