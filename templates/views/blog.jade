@@ -10,7 +10,10 @@ mixin post(post)
 					if i < post.categories.length - 1
 		if post.image.exists
 			img(src="/images/" + post.image.filename)
-		p!= post.content.brief
+		
+		section.contentBrief
+			p!= post.content.brief
+		
 		if post.content.extended
 			p.read-more: a(href='/galleri/post/' + post.slug) Les mer...
 
