@@ -1,51 +1,57 @@
-#map { height: 100%;
-    float: right;
-    width: 65%;
-}
-article{
-   width: 35%;
-   position: fixed;
-	 left: 0;
-   margin: 0 auto;
-   height: 100%;
-   overflow-y:scroll;
-   background-color: rgba(255, 255, 255, 0.66);;
-   z-index: 1;
-	 display: none;
-
-   font-family: fantasy;
-}
-#map > div.leaflet-control-container{
-  display: none;
-}
 body{
-	margin: 0;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.25em;
-  justify-content: center;
-  width: 100%;
-  background-image: url("bilder/paper.jpg");
+
 }
 article img{
-  width: 100%;
+  width: auto;
   height: auto;
+  max-height: 15em;
+  margin-left: auto;
+  margin-right: auto;
 }
-article.fullScreen{
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  margin: auto;
+article{
+   position: fixed;
+	 left: 10;
+   top: 50;
+   margin: 0 auto;
+   width: 33%;
+   max-height: 100%;
+   overflow-y: auto;
+   background-color: rgba(173,	216,	230, 0.75);
+   padding-right: 2%;
+   padding-left: 2%;
+   font-size: 125%;
+   z-index: 2;
+   border-radius: 15px;
 }
-section{
-  display: none;
+
+.fullScreen{
+   position: fixed;
+   margin: 0 auto;
+   padding: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
 }
+
+.fullScreen img{
+  position: fixed;
+  max-height: none;
+  top:0;
+  left: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+header, .fullScreen p{
+  position: relative;
+  z-index: 1;
+}
+
 nav{
   position: absolute;
   justify-content: center;
   text-align: center;
-  z-index: 2;
-  left: 30%;
+  z-index: 3;
   width: 40%;
 }
 nav button{
@@ -55,41 +61,49 @@ nav button{
   font-family: fantasy;
   font-size: 1em;
 }
-.fullScreen img{
+
+.leaflet-control-zoom{
+  display: none;
+}
+button:hover{
+  cursor: pointer;
+}
+#map{
   position: fixed;
   top:0;
   left: 0;
-  width: auto;
-  height: auto;
-}
-.fullScreen .tekst{
-  position: relative;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 1em;
-  width: 33%;
-}
-.container{
-  position:absolute;
-}
-.tekst{
-  margin: 0.5em;
-  top:0;
-  width: auto;
-}
-/*Scrollbar tests*/
-::-webkit-scrollbar
-{
-  width: 5px;  /* for vertical scrollbars */
-  height: 12px; /* for horizontal scrollbars */
+  width: 1240px;
+  height: 800px;
+  z-index: 0;
 }
 
-::-webkit-scrollbar-track
-{
-  background: rgba(0, 0, 0, 0);
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(/episoder/media/map_lastFrame.png) no-repeat;
+    background-size: cover;
 }
-
-::-webkit-scrollbar-thumb
-{
-  background: rgba(0, 0, 0, 0.5);
+img#map_lastFrame {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
 }

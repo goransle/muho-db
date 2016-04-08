@@ -1,95 +1,96 @@
-var map = L.map('map').setView([51.505, -0.09], 13);
-var osmUrl='http://www.openhistoricalmap.org/ohm_tiles/{z}/{x}/{y}.png';
-var britishMap='http://nls-3.tileserver.com/nls/{z}/{x}/{y}.jpg';
-var osmAttrib='Map data © <a href="https://openhistorcalmap.org">OpenHistoricalMap</a> contributors';
-var osm = new L.TileLayer(osmUrl, {minZoom: 3, maxZoom: 12, attribution: osmAttrib, continuousWorld: 'false',
-});
-var britain = new L.TileLayer(britishMap, {minZoom: 3, maxZoom: 12, attribution: osmAttrib});
-
-//kartoppsett
-map.setView(new L.LatLng(60.683629, 5.030783),3);
-map.addLayer(osm);
-//test
-
 var episoder = [];
-var markers = [];
 var currentEpisode = 0;
+var forrige = "sletta";
 
 //legge til episoder
-episoder.push(["Introduksjon", [60.397544, 5.321792], "intro.html",1]);
-episoder.push(["2. mai", [60.397544, 5.321792], "baaten.html",1]);
-episoder.push(["2. mai", [53.741275, -0.279313], "test.html"]);
-episoder.push(["7. mai", [53.401308, -2.995094], "liverpool.html"]);
-episoder.push(["17. mai", [42.380246, -71.057279], "test.html"]);
-episoder.push(["17. mai ++", [44.850110, -94.081004], "test.html"]);
+episoder.push(["sletta.html"]);
+episoder.push(["bergen.html"]);
+episoder.push(["baaten.html"]);
+episoder.push(["havet.html"]);
 //iterere over episoder
 episoder.forEach(function (item, index, array) {
-  console.log(item[1]);
-  markers[index] = L.marker(item[1]).addTo(map);
-  //$("nav").append("<button class='epButts' id='" + index + "'>" + item[0] + "</button>");
-  $("article").append("<section id='"+ index +"'></section>");
-  $("section#"+index).load("./episoder/"+item[2]);
-  if(item[3] == 1){
-    $("section#"+index).addClass("fullScreen");
+  console.log(item);
+  $("body").append("<article id='"+ getItemID(item) +"'></article>");
+  $("#"+getItemID(item)).load("./episoder/"+item.toString());
+});
+$("article").hide();
+$("#bgvideo").hide();
+$("#map_lastFrame").hide();
+$("article#sletta").show();
+function episodeHopper(id){
+  currentEpisode = parseInt(id);
+  var itemID = getItemID(episoder[currentEpisode]);
+  console.log(forrige);
+  //her er det plass til å legge inn animasjoner av diverse slag
+  if(itemID == "baaten"){
+    baaten(itemID);
   }
-});
+  else if(itemID == "bergen")
+    bergen(itemID);
+  else if(itemID == "havet"){
+      $("body").css("background-color", "black");
+      $("article#"+ forrige).hide();
+      $("article#"+ itemID).show();
+    }
+  else{
+    $("article").hide();
+    $("#bgvid").hide();
+    $("article#"+ itemID).show();
+  }
+}
 
-episodeHopper(currentEpisode);
-
-//knappar
-$(".epButts").click(function() {
-  episodeHopper(this.id);
-});
-$(".lukk").click(function() {
-  $("article").hide();
-});
 $("#neste").click(function() {
-  if(currentEpisode !=markers.length-1){
+  if(currentEpisode !=episoder.length-1){
     episodeHopper(currentEpisode+1);
+    forrige = getItemID(episoder[currentEpisode]);
   }
 });
 $("#forrige").click(function() {
   if(currentEpisode != 0){
     episodeHopper(currentEpisode-1);
+    forrige = getItemID(episoder[currentEpisode]);
   }
 });
-$(markers).click(function() {
-    episodeHopper($(markers).index(this));
-});
-function episodeHopper(id){
-  currentEpisode = parseInt(id);
-  //legge til brittania
-  if(currentEpisode == 3 ||currentEpisode == 2){
-    map.addLayer(britain);
-  }
-  else{
-    map.removeLayer(britain);
-  }
-  map.panTo(markers[currentEpisode].getLatLng());
-  if (currentEpisode == 2) {
-      map.setZoom(6);    }
-  if (currentEpisode == 3) {
-      map.setZoom(11);
-    }
-  if (currentEpisode == 4) {
-    map.setZoom(2);
-    map.removeLayer(britain);
-    }
-    if (currentEpisode == 5) {
-    }
-  if(currentEpisode != 0){
-    L.polygon([
-      markers[id].getLatLng(), markers[id-1].getLatLng()
-    ]).addTo(map);
-  }
-  $("section").hide();
-  $("article").show();
-  $("section#"+id).show();
-  if($("section#"+id).hasClass("fullScreen")){
-    $("article").addClass("fullScreen");
-  }
-  else{
-    $("article").removeClass("fullScreen");
-  }
 
+function getItemID(item){
+  return(item.toString().split(".")[0]);
 }
+
+function bergen(itemID){
+  if(forrige == "sletta"){
+    $("article#"+ forrige).fadeOut(1000);
+    $("nav").fadeOut();
+    $("#bgvid").show();
+    $("#bgvid").get(0).playbackRate = 2;
+    $("#bgvid").get(0).play();
+    $("#yakety").get(0).play();
+    $("article#"+ itemID).delay(5000).fadeIn(1000);
+    $("#map_lastFrame").delay(5000).fadeIn(1000);
+    $("nav").delay(5000).fadeIn();
+  }
+  if(forrige == "baaten"){
+    $("article#"+ forrige).fadeOut(1000);
+    $("article#"+ itemID).show();
+    $("#map_lastFrame").fadeIn(1000);
+    $("#map_lastFrame").animate({width: "100%", height: "100%"}, 1000);
+
+  }
+}
+function baaten(itemID){
+  if(forrige == "bergen"){
+    $("article#"+ forrige).fadeOut(1000);
+    $("#map_lastFrame").animate({width: "200%", height: "200%"}, 1000);
+    $("#map_lastFrame").fadeOut(1000);
+    $("article#"+ itemID).fadeIn(2000);
+    $("#bgvid").hide();
+    $("#yakety").get(0).pause();
+  }
+  else {
+    $("article#"+ forrige).fadeOut(1000);
+    $("article#"+ itemID).fadeIn(1000);
+  }
+}
+
+$(document).ready(function() {
+  $('.fancybox').fancybox();
+});

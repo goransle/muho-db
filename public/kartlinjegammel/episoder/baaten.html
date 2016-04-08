@@ -1,0 +1,59 @@
+<div class="container">
+  <img src="episoder/media/bryggen.png" alt="" />
+  <div id="oval"></div>
+  <img class="hidden" id="boten" src="episoder/media/skipet.png" alt="" />
+  <!-- <audio src="episoder/media/Bryggen.m4a" autoplay="true"></audio> -->
+  <div id="tekst"><h2>Amerikabåten</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+</div>
+<script>
+$("#tekst").hide();
+$("#oval").click(function() {
+  $("#tekst").toggle();
+  $("#boten").toggleClass("hidden");
+});
+$("#boten").click(function() {
+  $("#tekst").hide();
+  $("#boten").addClass("hidden");
+  $("#boten").css("background-color", "rgba(255, 255, 255, 0.00)");
+});
+$("#oval").mouseover(function() {
+  $(".hidden").show();
+  $("#boten").css("background-color", "rgba(255, 255, 255, 0.50)");
+});
+$("#oval").mouseout(function() {
+  $(".hidden").hide();
+});
+
+</script>
+<style>
+.container{
+  width: 1024px;
+  height: 798px;
+}
+.hidden{
+  display: none;
+}
+
+#oval {
+  position: absolute;
+  bottom: 150px;
+  left: 0;
+  width: 500px;
+  height: 200px;
+  background: rgba(0, 0, 0, 0);;
+  -moz-border-radius: 100px / 50px;
+  -webkit-border-radius: 100px / 50px;
+  border-radius: 100px / 50px;
+  transform: rotate(-20deg);
+  z-index: 1;
+}
+#tekst{
+  position: relative;
+  top:0;
+  left: 0;
+  z-index:1;
+  background-color: rgba(0, 0, 0, 0.15);;
+  width: 50%;
+  padding: 1em;
+}
+</style>

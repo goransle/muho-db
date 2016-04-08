@@ -1,0 +1,95 @@
+#map { height: 100%;
+    float: right;
+    width: 65%;
+}
+article{
+   width: 35%;
+   position: fixed;
+	 left: 0;
+   margin: 0 auto;
+   height: 100%;
+   overflow-y:scroll;
+   background-color: rgba(255, 255, 255, 0.66);;
+   z-index: 1;
+	 display: none;
+
+   font-family: fantasy;
+}
+#map > div.leaflet-control-container{
+  display: none;
+}
+body{
+	margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25em;
+  justify-content: center;
+  width: 100%;
+  background-image: url("bilder/paper.jpg");
+}
+article img{
+  width: 100%;
+  height: auto;
+}
+article.fullScreen{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  margin: auto;
+}
+section{
+  display: none;
+}
+nav{
+  position: absolute;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  left: 30%;
+  width: 40%;
+}
+nav button{
+  background: rgba(255, 255, 255, 0.75);
+  border: none;
+  margin: 1px;
+  font-family: fantasy;
+  font-size: 1em;
+}
+.fullScreen img{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: auto;
+  height: auto;
+}
+.fullScreen .tekst{
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+  width: 33%;
+}
+.container{
+  position:absolute;
+}
+.tekst{
+  margin: 0.5em;
+  top:0;
+  width: auto;
+}
+/*Scrollbar tests*/
+::-webkit-scrollbar
+{
+  width: 5px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+}

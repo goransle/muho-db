@@ -19,7 +19,7 @@ block content
 						if data.post.publishedDate
 							|  #{data.post._.publishedDate.format('MMMM Do, YYYY')}
 						if data.post.categories && data.post.categories.length
-							|  i 
+							|  i
 							each cat, cat_i in data.post.categories
 								a(href='/galleri/' + cat.key)= cat.name
 								if cat_i < data.post.categories.length - 1
@@ -69,8 +69,9 @@ block content
 						- var artikkel = artikler[i]
 						if artikkel != null
 							.artikkel
-								h3: a(href='/galleri/post/'+artikkel.slug)=artikkel.title
-								if artikkel.image.path
-									img(src="/images/" + artikkel.image.filename)
-								else
-									img(src="/images/Logo.png")
+								a(href='/galleri/post/'+artikkel.slug)
+									h3=artikkel.title
+									if artikkel.image.path
+										img(src="/images/" + artikkel.image.filename)
+									else
+										img(src="/images/Logo.png")

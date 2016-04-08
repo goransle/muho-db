@@ -3,20 +3,20 @@
   <title>Title</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="style.css"/>
-  <link rel="stylesheet" href="js/leaflet.css" />
-  <script src="js/leaflet.js"></script>
-  <script src="./js/jquery-2.1.0.min.js"></script>
+  <script src="js/jquery-2.1.0.min.js"></script>
+  <link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="js/fancybox/source/jquery.fancybox.pack.js"></script>
 </head>
 <body>
+  <video id="bgvid" playbackRate= "-1"><source src="/episoder/media/video.mp4" type="video/mp4"></video>
+    <img src="/episoder/media/map_lastFrame.png" alt="" id="map_lastFrame" />
+    <audio id="yakety" src="/episoder/media/yakety.mp3">
+
+    </audio>
   <nav>
     <button id="forrige">◀ Tilbake</button>
     <button id="neste">Fram ▶</button>
   </nav>
-  <article>
-    <!-- <button class="lukk">Lukk</button><br/> -->
-  </article>
-  <div id="map"></div>
-  <script src="script.js">
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
