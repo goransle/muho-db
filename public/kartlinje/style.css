@@ -90,7 +90,7 @@ video#bgvid {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(/episoder/media/map_lastFrame.png) no-repeat;
+    background: url("./episoder/media/video.mp4") no-repeat;
     background-size: cover;
 }
 img#map_lastFrame {

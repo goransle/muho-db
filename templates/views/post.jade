@@ -10,7 +10,7 @@ block content
 					h1= data.post.title
 				.post
 					if data.post.image.exists
-						.image-wrap: img(src="/images/" + data.post.image.filename).img-responsive
+						.image-wrap: img(src="/images/post" + data.post.image.filename).img-responsive
 					.postText
 						!= data.post.content.full
 
@@ -72,6 +72,6 @@ block content
 								a(href='/galleri/post/'+artikkel.slug)
 									h3=artikkel.title
 									if artikkel.image.path
-										img(src="/images/" + artikkel.image.filename)
+										img(src="/images/post" + artikkel.image.filename)
 									else
 										img(src="/images/Logo.png")

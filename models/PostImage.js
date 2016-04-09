@@ -14,7 +14,7 @@ var PostImage = new keystone.List('PostImage', {
 PostImage.add({
 	title: { type: String, required: true },
 	image: { type: Types.LocalFile,
-		dest: './public/images',
+		dest: './public/images/post',
 		prefix: '/images',
 		format: function(item, file){
 			return '<img src="' + file.href + '" style="max-width: 300px;max-height:300px"><br/>' +"&lt;img src='" + file.href + "'&gt";

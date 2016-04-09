@@ -17,7 +17,7 @@ Post.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	image: { type: Types.LocalFile,
-        dest: './public/images',
+        dest: './public/images/post',
         prefix: '/images',
 				ref: 'PostImage',
         format: function(item, file){

@@ -32,6 +32,8 @@ function episodeHopper(id){
       $("article#"+ forrige).hide();
       $("article#"+ itemID).show();
     }
+  else if(itemID =="sletta")
+    sletta(itemID);
   else{
     $("article").hide();
     $("#bgvid").hide();
@@ -65,7 +67,7 @@ function bergen(itemID){
     $("#bgvid").get(0).play();
     $("#yakety").get(0).play();
     $("article#"+ itemID).delay(5000).fadeIn(1000);
-    $("#map_lastFrame").delay(5000).fadeIn(1000);
+    $("#map_lastFrame").delay(8000).fadeIn(1000);
     $("nav").delay(5000).fadeIn();
   }
   if(forrige == "baaten"){
@@ -74,6 +76,21 @@ function bergen(itemID){
     $("#map_lastFrame").fadeIn(1000);
     $("#map_lastFrame").animate({width: "100%", height: "100%"}, 1000);
 
+  }
+}
+function sletta(itemID){
+  if(forrige == "bergen"){
+    $("#bgvid").show();
+    $("#bgvid").get(0).currentTime = 0;
+    $("#bgvid").get(0).pause();
+    $("article#"+ forrige).hide();
+    $("article#"+ itemID).show();
+    $("#map_lastFrame").hide();
+  }
+  else{
+    $("article#"+ forrige).fadeOut(1000);
+    $("article#"+ itemID).show();
+    $("#map_lastFrame").hide();
   }
 }
 function baaten(itemID){
