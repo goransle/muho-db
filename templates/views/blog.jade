@@ -9,7 +9,7 @@ mixin post(post)
 					//a.artikkelKategori(href='/galleri/' + cat.key)= cat.name
 					if i < post.categories.length - 1
 		if post.image.exists
-			img(src="/images/post" + post.image.filename)
+			img(src="/images/post/" + post.image.filename)
 
 		section.contentBrief
 			p!= post.content.brief
