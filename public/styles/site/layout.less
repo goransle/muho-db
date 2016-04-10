@@ -1,5 +1,9 @@
 #header {
-	margin-top: 50px;
+	margin-top: 0px; /*50px;*/
+	padding:1px; /*Fyller headeren mer enn 1px av en eller annen grunn */
+	
+	/*Fjern padding og sett margin til 50px for tilbakestilling*/
+
 	background-color:#365870;
 }
 body{
@@ -98,10 +102,24 @@ nav li, nav h2{
 
 ul.nav.navbar-nav > li > a {
 	color:white;
+	font-size:15px;
+}
+
+.loginout{
+	border:2px solid white;
+	border-radius:15px;
+	/*Media-query for mindre skjerm: ingen border*/
+}
+
+.loginout:hover{
+	background-color: #45708F;
+	border-radius:15px; /*Samme som -navbar-right li a- radius*/
+	/*Skulle gjerne beholdt denne teksten hvit på hover*/
 }
 
 .navbar-default .navbar-brand{
 	color:white;
+	font-size:24px; /*før: 18px;*/
 }
 
 .navbar-default .navbar-toggle .icon-bar{
@@ -150,7 +168,7 @@ article img{
 /*Spesifik style for index-sida under*/
 
 .jumbotron{
-	background-color:rgba(255, 255, 255, 0.8);
+	background-color:rgba(255, 255, 255, 0.5);
 }
 
 #pagewrapper{

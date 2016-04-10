@@ -59,9 +59,9 @@ html
 							if user
 								if user.canAccessKeystone
 									li: a(href='/keystone') Åpne Keystone
-								li: a(href='/keystone/signout') Logg ut
+								li.loginout: a(href='/keystone/signout') Logg ut
 							else
-								li: a(href='/keystone/signin') Logg inn
+								li.loginout: a(href='/keystone/signin') Logg inn
 
 		//- BODY
 		#body
