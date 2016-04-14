@@ -1,8 +1,8 @@
+/* Media queries vil midlertidig legges individuelt under det elementet det er en variant av, og samles sammen mot slutten av stylingen. Bare å samle det tidligere om dere vil, opp til dere. Max-width for media-queries er foreløpig 770px. Ca det samme som grensa for drop-down menyen*/
+
 #header {
-	margin-top: 0px; /*50px;*/
-	padding:1px; /*Fyller headeren mer enn 1px av en eller annen grunn */
-	
-	/*Fjern padding og sett margin til 50px for tilbakestilling*/
+	margin-top: -20px; /*50px;*/
+	/*Fyller headeren mer enn 1px av en eller annen grunn */
 
 	background-color:#365870;
 }
@@ -48,6 +48,16 @@ article > p a{
     column-rule-width: 1px;
 }
 
+.postText a{
+color: #23527C;
+}
+
+.postText a:hover{
+	text-decoration: none;
+	font-style:italic;
+	color: #337AB7;
+}
+
 .post img{
 	max-width: 100%;
 	width: auto;
@@ -59,6 +69,11 @@ article > p a{
 	align-items: center;
 	margin:20px;
 }
+
+.container .temaNav ul li{
+	margin:15px;	
+}
+
 .image-wrap{
     width: 440px;
     margin: auto;
@@ -111,10 +126,30 @@ ul.nav.navbar-nav > li > a {
 	/*Media-query for mindre skjerm: ingen border*/
 }
 
+@media screen and (max-width: 770px) {
+	
+	.loginout{
+		border:none; /*Fjerner border i drop-down meny*/
+	}
+
+	.loginout:hover{
+	background-color:transparent;/*Fjerner lang boks i drop-down meny*/
+	}
+
+}
+
 .loginout:hover{
 	background-color: #45708F;
 	border-radius:15px; /*Samme som -navbar-right li a- radius*/
 	/*Skulle gjerne beholdt denne teksten hvit på hover*/
+}
+
+@media screen and (max-width: 770px) {
+
+	.loginout:hover{
+	background-color:transparent;/*Fjerner lang boks i drop-down meny*/
+	}
+
 }
 
 .navbar-default .navbar-brand{
