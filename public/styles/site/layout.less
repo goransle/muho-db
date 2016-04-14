@@ -1,9 +1,7 @@
-/* Media queries vil midlertidig legges individuelt under det elementet det er en variant av, og samles sammen mot slutten av stylingen. Bare å samle det tidligere om dere vil, opp til dere. Max-width for media-queries er foreløpig 770px. Ca det samme som grensa for drop-down menyen*/
+/* Media queries vil midlertidig legges individuelt under det elementet det er en variant av, og samles sammen mot slutten av stylingen. Bare å samle det tidligere om dere vil, opp til dere. Max-width for media-queries er foreløpig 770px. Ca det samme som grensa for drop-down menyen */
 
 #header {
 	margin-top: -20px; /*50px;*/
-	/*Fyller headeren mer enn 1px av en eller annen grunn */
-
 	background-color:#365870;
 }
 body{
@@ -70,9 +68,16 @@ color: #23527C;
 	margin:20px;
 }
 
-.container .temaNav ul li{
-	margin:15px;	
+.container .temaNav ul li a{
+	margin:10px;
+	color:#23527C;	
 }
+
+.container .temaNav ul li a:hover{
+	text-decoration: none;
+	color: #337AB7;
+}
+
 
 .image-wrap{
     width: 440px;
@@ -200,6 +205,15 @@ article img{
 	height: 3em;
 }
 
+.artikkelTittel a{
+	color: #23527C;	
+}
+
+.artikkelTittel a:hover{
+	text-decoration: none;
+	color: #337AB7;
+}
+
 /*Spesifik style for index-sida under*/
 
 .jumbotron{
@@ -248,10 +262,13 @@ article img{
 
 .contentBrief{
 	max-width:33%;	
+	font-size:14px;
 }
 
-.contentBrief{
-	font-size:14px;
+@media screen and (max-width: 770px) {
+	.contentBrief{
+	font-size:10px;
+	}
 }
 
 
