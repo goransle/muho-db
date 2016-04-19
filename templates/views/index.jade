@@ -1,16 +1,15 @@
 extends ../layouts/default
-
+mixin post(post)
+	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
+		h3.artikkelTittel: a(href='/galleri/post/' + post.slug)= post.title
+			img(src="/images/post/" + post.image.filename)
+		section.contentBrief
+			p!= post.content.brief
 block content
-	.container: .jumbotron
-		<section id="pagewrapper">
-		<section id="catwrapper">
-		<h3>Nav med kartlinje + andre, ideelt genereres fra artikkelkategorier</h3>
-		<ul id="hjemliste">
-		<li><a href="/Parallax-del/parallaxhtml.html">Reisen</a></li>
-		</ul>
-		<section id="catinfo">
-		<h3>"Flavor text" for valgt kategori</h3>
-		<button type="button">Klikk for å gå til siden som er valgt!</button>
-		</section>
-		</section>
-		</section>
+	.container
+			each cat in data.categories
+				section.kategori
+					h2=cat.name
+					each post in data.posts.results
+						if post.categories[0].id.indexOf(cat.id) != -1 && post.image.exists
+							+post(post)
