@@ -7,11 +7,28 @@ mixin post(post)
 			section.contentBrief
 				p!= post.content.brief
 block content
+	script(src='/js/jquery/jquery-2.1.4.min.js')
+
 	.container
-			each cat in data.categories
-				section.kategori
+		- var kategorier = []
+		each cat in data.categories
+			section.kategori
+				header
 					h2: a(href="/galleri/" + cat.key)= cat.name
-					each post in data.posts.results
-						if post.categories.length
-							if post.categories[0].id.indexOf(cat.id) != -1 && post.image.exists
-								+post(post)
+					p=cat.description
+				each post in data.posts.results
+					if post.categories.length
+						if post.categories[0].id.indexOf(cat.id) != -1 && post.image.exists
+							+post(post)
+	script.
+		$("section.kategori").click(function(){
+			if($(this).hasClass("wide")){
+				$(this).removeClass("wide");
+				$(this).css("display", "inline-table");
+			}
+			else{
+				$(this).addClass("wide");
+				$(this).css("display", "block");
+			}
+			$(this).siblings().toggle();
+		});
