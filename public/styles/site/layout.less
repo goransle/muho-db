@@ -8,13 +8,46 @@ body{
 	/*background-color: LightSkyBlue;*/
 	background-color: #FFE5BF;
 	background-image: url("../images/paperbkg.png");
-
-
 }
+
 h1{
     text-align: center;
     font-weight: bold;
 }
+
+#footer{
+	background-color: rgba(10,10,10,0.50);
+	width:100%;
+	margin:0;
+	padding:50px;
+}
+
+#footer a{
+	text-decoration:none;
+	color:#FFFFFF;
+	display:block;
+}
+
+#footer a:hover{
+	color:#D9D9D9;
+}
+
+.footerContainer ul{
+	list-style-type:none;
+	font-size:16px;
+	padding:0;
+	margin:25px;
+}
+
+.footerContainer ul li{
+	margin:5px;
+}
+
+.footerContainer{
+	float:right;
+	color:white;
+}
+
 .post{
     font-size: 125%;
     margin-left: auto;
@@ -93,12 +126,7 @@ h5{
     font-style: italic;
     text-align: right;
 }
-#footer {
-	margin-top: 30px;
-	border-top: 1px solid #eeeeee;
-	padding-top: 30px;
-	color: #777777;
-}
+
 nav{
 	position: relative;
 	top: 0;
@@ -172,15 +200,53 @@ img.img.pull-right{
 article img{
 	max-width: 80%;
 }
-#andreArtikler{
-	background-color: rgba(255, 255, 255, 0.25);
-    padding-top: 50px;
-	display: flex;
-}
+
 
 #relArt{
 	text-align:center;
 	margin-bottom:20px;
+}
+
+#andreArtikler{
+	min-height:200px;
+	min-width:675px;
+	background-color: rgba(255, 255, 255, 0.25);
+	display: flex;
+}
+
+#andreArtikler .artikkel{
+	background-color: rgba(0, 0, 0, 0.25); /*Fjern seinere*/
+	max-width:200px;
+	max-height:150px;
+	min-height:75px;
+	min-width:100px;
+}
+
+#andreArtikler .artikkel img{
+	margin-top:-100px;
+}
+
+#andreArtikler a{
+	text-decoration:none;
+	color:#23527C;
+}
+
+#andreArtikler a h3{
+	position:relative;
+	visibility:hidden;
+	z-index:10;
+}
+
+#andreArtikler a:hover h3{
+	visibility:visible;
+}
+
+#andreArtikler a:hover{
+	color:#337AB7;
+}
+
+#andreArtikler .artikkel{
+	margin: auto;
 }
 
 /*#foran, #bak{
@@ -192,14 +258,16 @@ article img{
 }*/
 
 .artikkel{
-	  width: 30%;
-		padding: 1em;
+	width: 30%;
+	padding: 1em;
 }
 .artikkel img{
+	position:relative;
     max-width: 100%;
-		width: auto;
+	width: auto;
     height: auto;
-		max-height: 15em;
+	max-height: 15em;
+	z-index:0;
 }
 .artikkel h3{
 	height: 3em;
@@ -219,32 +287,6 @@ article img{
 .jumbotron{
 	background-color:rgba(255, 255, 255, 0.5);
 }
-
-#pagewrapper{
-	text-align: center;
-}
-
-#headwrapper{
-
-}
-
-#catwrapper{
-
-}
- #catinfo{
-
- }
-
- #hjemliste li{
- font-size: 150%;
- list-style-type: none;
- display: inline;
- margin: 20px;
- }
-
- #hjemliste li:hover{
- 	text-decoration: underline;
- }
 
 /*Spesifik style for galleri-sida under*/
 
