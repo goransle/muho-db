@@ -9,7 +9,7 @@ block content
 	.container
 			each cat in data.categories
 				section.kategori
-					h2=cat.name
+					h2: a(href="/galleri/" + cat.key)= cat.name
 					each post in data.posts.results
 						if post.categories[0].id.indexOf(cat.id) != -1 && post.image.exists
 							+post(post)
