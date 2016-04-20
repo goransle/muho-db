@@ -260,7 +260,7 @@ article img{
 	float:right;
 }
 
-.contentBrief{
+.galleri .contentBrief{
 	max-width:33%;
 	font-size:14px;
 }
@@ -272,10 +272,15 @@ article img{
 }
 section.kategori{
 	display: inline-table;
+	position: relative;
 	width: 300px;
+	height: auto;
+	margin-left: 1em;
+	top: 0;
+	margin-bottom: 1em;
 }
 section.kategori img{
-	position: absolute;
+	position: relative;
 	width: 100%;
 	height: auto;
 	top:0;
@@ -284,12 +289,20 @@ section.kategori img{
 }
 section.kategori h2{
 	margin: 0;
-	padding: 0;
+	margin-bottom: 0.5em;
+	padding: 5px;
+	background-color: rgba(0, 0, 0, 0.1);
 }
-section.kategori{
-	margin-left: 1em;
-	top: 0;
+.kategori .post .tekst{
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.1);
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 0.5em;
 }
-section.kategori a:hover{
-	background-color: black;
+kategori .post p{
+	max-width: 100%;
+}
+.kategori .post h3, .kategori .post .contentBrief, .kategori .post p, .kategori .post{
+	margin: 0;
 }
