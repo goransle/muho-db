@@ -10,25 +10,44 @@ block content
 	script(src='/js/jquery/jquery-2.1.4.min.js')
 
 	.container
-		- var kategorier = []
-		each cat in data.categories
-			section.kategori
-				header
-					h2: a(href="/galleri/" + cat.key)= cat.name
-					p=cat.description
-				each post in data.posts.results
-					if post.categories.length
-						if post.categories[0].id.indexOf(cat.id) != -1 && post.image.exists
-							+post(post)
+		.banner
+			img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RMS_Titanic_3.jpg/1024px-RMS_Titanic_3.jpg")
+			h2 Legg ut på ei reise du seint vil gløyme
+		.table
+			each cat in data.categories
+				- var i = 0;
+				section.kategori
+					header
+						h2: a(href="/galleri/" + cat.key)= cat.name
+						button.visalle.hidden Vis alle
+						p=cat.description
+					each post in data.posts.results
+						if post.categories.length
+							if post.categories[0].id.indexOf(cat.id) != -1 && post.image.exists
+								div(class= i )
+									+post(post)
+								-i++
 	script.
 		$("section.kategori").click(function(){
 			if($(this).hasClass("wide")){
 				$(this).removeClass("wide");
 				$(this).css("display", "inline-table");
+				$(".visalle").addClass("hidden");
+				$(".banner").show();
+				$("section.kategori > div").not('div.0').hide();
 			}
 			else{
 				$(this).addClass("wide");
 				$(this).css("display", "block");
+				$(".visalle").removeClass("hidden");
+				$(".banner").hide();
+				$("section.kategori > div").not('div.0').show()
 			}
 			$(this).siblings().toggle();
+		});
+		$(".banner").click(function(){
+			window.location.href = ("https://dl.dropboxusercontent.com/u/1113159/kartlinje/index.html");
+		});
+		$( document ).ready(function() {
+				$("section.kategori > div").not('div.0').hide();
 		});

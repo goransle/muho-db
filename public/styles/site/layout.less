@@ -96,9 +96,11 @@ color: #23527C;
 	height:auto;
 }
 .container{
-	width:90%;
+	width:85%;
 	align-items: center;
 	margin:20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .container .temaNav ul li a{
@@ -309,16 +311,17 @@ article img{
 
 @media screen and (max-width: 770px) {
 	.contentBrief{
-	font-size:10px;
+		font-size:10px;
 	}
 }
 section.kategori{
 	display: inline-table;
 	position: relative;
-	width: 250px;
+	width: 22%;
 	height: auto;
-	margin-left: 1em;
+	margin: 1%;
 	margin-bottom: 1em;
+	text-align: left;
 }
 section.kategori img{
 	position: relative;
@@ -352,4 +355,49 @@ section.wide{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+.visalle{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1em;
+}
+.banner{
+	height: 250px;
+	width: 100%;
+	margin-bottom: 1em;
+	margin-top: 0;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.2);;
+}
+.banner img{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	  top: -9999px;
+	  bottom: -9999px;
+	  left: -9999px;
+	  right: -9999px;
+	  margin: auto;
+		z-index: -1;
+}
+.banner:hover, .kategori:hover{
+	cursor: pointer;
+}
+.banner h2{
+	position: absolute;
+	bottom: 5%;
+	left: 45%;
+	background-color: rgba(0, 0, 0, 0.5);
+	transform: rotate(-0.01turn);
+	color: white;
+}
+.table{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	align-self: center;
+	justify-content: center;
+	text-align: center;
 }
