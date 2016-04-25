@@ -1,18 +1,27 @@
 /* Media queries vil midlertidig legges individuelt under det elementet det er en variant av, og samles sammen mot slutten av stylingen. Bare å samle det tidligere om dere vil, opp til dere. Max-width for media-queries er foreløpig 770px. Ca det samme som grensa for drop-down menyen */
 
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+@import url('https://fonts.googleapis.com/css?family=Lora');
+
 #header {
 	margin-top: -20px; /*50px;*/
 	background-color:#365870;
 }
 body{
-	/*background-color: LightSkyBlue;*/
-	background-color: #FFE5BF;
+    //background-color: #E6F0FF; //Weird blue
+    //background-color: #8F9DB2; //Grayish-blue
+	//background-color: #FFE5BF; //Beige
+    background-color: #838991; //Gray
+    //background-color:  #5C6066; //Dark-gray
 	background-image: url("../images/paperbkg.png");
 }
+
 
 h1{
     text-align: center;
     font-weight: bold;
+    font-family: "Poiret One";
 }
 
 #footer{
@@ -321,8 +330,13 @@ section.kategori{
 	height: auto;
 	margin: 1%;
 	margin-bottom: 1em;
-	text-align: left;
+	text-align: center; //left
 }
+
+.kategori a {
+        text-decoration: none;
+}
+
 section.kategori img{
 	position: relative;
 	width: 100%;
@@ -335,8 +349,20 @@ section.kategori header{
 	margin: 0;
 	margin-bottom: 0.5em;
 	padding: 5px;
-	background-color: rgba(0, 0, 0, 0.1);
+	//background-color: rgba(0, 0, 0, 0.1);
 }
+
+.kategori header h2:before{
+      content: "";
+    position: absolute;
+    top:45px;
+    width: 33%;
+    height: 1px;
+    left: 33%;
+    border-bottom: 1px solid black;
+    
+}
+
 .kategori .post .tekst{
 	position: relative;
 	background-color: rgba(0, 0, 0, 0.1);
@@ -363,13 +389,13 @@ section.wide{
 	margin: 1em;
 }
 .banner{
-	height: 250px;
+	height: 500px;
 	width: 100%;
 	margin-bottom: 1em;
 	margin-top: 0;
 	overflow: hidden;
 	position: relative;
-	box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.2);;
+	box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.2);;
 }
 .banner img{
 	width: 100%;
@@ -387,8 +413,8 @@ section.wide{
 }
 .banner h2{
 	position: absolute;
-	bottom: 5%;
-	left: 45%;
+	bottom: 20%;
+	left: 40%;
 	background-color: rgba(0, 0, 0, 0.5);
 	transform: rotate(-0.01turn);
 	color: white;
