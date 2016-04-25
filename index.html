@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="/public/js/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <section>
+    <h1>Velg nettutstilling</h1>
+    <div class="up">
+      <div class="valg" id="utvandring"><h2>Vestnorsk Utvandringssenter</h2>
+        <img class="hidden" src="/public/images/koffert.webp" alt="" />
+        <p class="hidden">
+          Sjå vår nettutstilling om utvandring til Amerika
+        </p>
+      </div>
+      <div class="gray valg" id="trikotasje"><h2>Norsk Trikotasjemuseum</h2>
+        <p class="hidden">
+          Kjem på eit seinare tidspunkt
+        </p>
+      </div>
+    </div>
+    <div class="down">
+      <div class="gray valg" id="lynghei"><h2>Lyngheisenteret</h2>
+        <p class="hidden">
+          Kjem på eit seinare tidspunkt
+        </p>
+      </div>
+      <div class="gray valg" id="havraa"><h2>Havråtunet</h2>
+        <p class="hidden">
+          Kjem på eit seinare tidspunkt
+        </p>
+      </div>
+    </div>
+  </section>
+  <script>
+  $( ".valg" ).hover(
+    function() {
+      $(this).children("img, p").fadeIn();
+      $(this).children("h2").fadeOut();
+
+    }, function() {
+      $(this).children("img, p").fadeOut();
+      $(this).children("h2").fadeIn();
+    }
+  );
+  </script>
+</body>
+<style>
+  div.valg{
+    width: 47%;
+    height: 250px;
+    display: inline-block;
+    margin: 1%;
+    padding: 0;
+    border-style:solid;
+    border-color: rgba(255, 255, 255, 0.5);
+    border-width: thin;
+    position: relative;
+    overflow: hidden;
+  }
+  img{
+    width: 100%;
+    height: auto;
+    margin-top: -10%;
+    z-index: 0;
+  }
+  div.valg h2, div.valg p{
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+  }
+  div.up, div.down{
+    width: 100%;
+    display: grid;
+    margin: 0;
+    position: relative;
+  }
+  section{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 75%;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    background-color: #99D3ED;
+    font-family: 'Lora', serif;
+  }
+  #utvandring{
+    background-color: #51B9EA;
+  }
+  #utvandring:hover{
+    cursor: pointer;
+  }
+  #trikotasje{
+    background-color: #FFA840;
+  }
+  #havraa{
+    background-color: #ADC76D;
+  }
+  #lynghei{
+    background-color: #A6739D;
+  }
+.hidden{
+  display: none;
+}
+p{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 150%;
+  width: 100%;
+  z-index: 1;
+}
+</style>
+</html>

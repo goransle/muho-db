@@ -18,7 +18,7 @@ Post.add({
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	image: { type: Types.LocalFile,
         dest: './public/images/post',
-        prefix: '/images',
+        prefix: '/images/post',
 				ref: 'PostImage',
         format: function(item, file){
             return '<img src="' + file.href + '" style="max-width: 300px">'
