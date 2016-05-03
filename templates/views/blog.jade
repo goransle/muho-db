@@ -22,7 +22,7 @@ block intro
 		//h1= data.category ? data.category.name : 'galleri'
 		if data.categories.length
 			nav.temaNav
-				ul <h2>Tema:</h2>
+				ul
 					each cat in data.categories
 						li
 							a(href='/galleri/' + cat.key, class=data.category && data.category.id == cat.id)= cat.name
