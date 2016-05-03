@@ -212,6 +212,8 @@ ul.nav.navbar-nav > li > a {
 	background-color:transparent;/*Fjerner lang boks i drop-down meny*/
 	}
 
+
+
 }
 
 .navbar-default .navbar-brand{
@@ -353,14 +355,18 @@ section.kategori header{
 }
 
 .kategori header h2:before{
-      content: "";
+    content: "";
     position: absolute;
     top:45px;
     width: 33%;
     height: 1px;
     left: 33%;
     border-bottom: 1px solid #ededed;
-    
+}
+.kategori header p{
+	padding-top: 1em;
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 .kategori .post .tekst{
@@ -370,8 +376,9 @@ section.kategori header{
 	padding: 5px;
 	margin-bottom: 0.5em;
 }
-kategori .post p{
+.kategori .post p, .kategori .post h3{
 	max-width: 100%;
+	text-align: left;
 }
 section.kategori h2,.kategori .post h3, .kategori .post .contentBrief, .kategori .post p, .kategori .post{
 	margin: 0;
@@ -413,17 +420,23 @@ section.wide{
 }
 .banner h2{
 	position: absolute;
-	bottom: 20%;
+	bottom: 5%;
+	padding: 5px;
 	left: 40%;
 	background-color: rgba(0, 0, 0, 0.5);
 	transform: rotate(-0.01turn);
-	color: white;
+	color: rgb(237, 237, 237);
 }
 .table{
 	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	align-self: center;
-	justify-content: center;
 	text-align: center;
+}
+
+@media screen and (max-width: 770px) {
+	.banner{
+		height: 200px;
+	}
+	.banner h2{
+		font-size: 90%;
+	}
 }
