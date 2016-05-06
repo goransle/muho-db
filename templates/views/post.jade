@@ -36,8 +36,10 @@ block content
 						//Kodebiten over viser alle tilgjengelige kilder, erstattet kodebiten under + lignende kodebit for content.textSources
 						//if data.post.content.onlineSources
 						//	p: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
-				hr
-				p: a(href='/galleri') &larr; Tilbake til galleriet
+				hr    
+				ul
+					li: a(href='#header') &uarr; Tilbake til toppen
+					li: a(href='/galleri') &larr; Tilbake til galleriet
 
 				// Lister alle andre poster. Snevre inn til 3 innenfor samme kategori med random shit going on
 				- var posts = data.posts
