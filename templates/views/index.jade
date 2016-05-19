@@ -13,7 +13,8 @@ block content
 		.banner
 			img(src="/images/bryggen.jpg")
 			h2 Legg ut på ei reise du seint vil gløyme
-		.table
+		#arrowPointingDown: a(href="./#kategorier") ↓
+		#kategorier.table
 			each cat in data.categories
 				- var i = 0;
 				section.kategori
@@ -23,7 +24,7 @@ block content
 						p=cat.description
 					each post in data.posts.results
 						if post.categories.length
-							if post.categories[0].id.indexOf(cat.id) != -1 && post.image.exists
+							if post.categories[0].id.indexOf(cat.id) != -1 && post.image.exists && i < 1
 								div(class= i )
 									+post(post)
 								-i++
@@ -46,7 +47,7 @@ block content
 			$(this).siblings().toggle();
 		});
 		$(".banner").click(function(){
-			window.location.href = ("https://dl.dropboxusercontent.com/u/1113159/kartlinje/index.html");
+			window.location.href = ("./kartlinje/");
 		});
 		$( document ).ready(function() {
 				$("section.kategori > div").not('div.0').hide();

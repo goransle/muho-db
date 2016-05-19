@@ -26,7 +26,7 @@ Post.add({
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
-		textSources:{ type: String},
+		textSources: { type: Types.Html, wysiwyg: true, height: 150 },
 		onlineSources: { type: Types.Url},
 		eventYear: { type: Types.Number}
 	},

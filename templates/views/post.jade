@@ -19,24 +19,25 @@ block content
 						if data.post.publishedDate
 							|  #{data.post._.publishedDate.format('MMMM Do, YYYY')}
 						if data.post.categories && data.post.categories.length
-							|  i
+							| &#32i&#32
 							each cat, cat_i in data.post.categories
 								a(href='/galleri/' + cat.key)= cat.name
 								if cat_i < data.post.categories.length - 1
-									| ,
+									| ,&#32
 								else
 						if data.post.author
 							|  av #{data.post.author.name.first}
 
 						if data.post.content.textSources || data.post.content.onlineSources
-							h5.stylaTittel Kilder:
-							p.pubMeta #{data.post.content.textSources}
-							p.pubMeta: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
+							#kilder
+								h5.stylaTittel Kilder:
+								p.pubMeta!= data.post.content.textSources
+								p.pubMeta: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
 
 						//Kodebiten over viser alle tilgjengelige kilder, erstattet kodebiten under + lignende kodebit for content.textSources
 						//if data.post.content.onlineSources
 						//	p: a(href=data.post.content.onlineSources) #{data.post.content.onlineSources}
-				hr    
+				hr
 				ul
 					li: a(href='#header') &uarr; Tilbake til toppen
 					li: a(href='/galleri') &larr; Tilbake til galleriet
