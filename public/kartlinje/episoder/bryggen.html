@@ -13,17 +13,32 @@
     <script src="/js/jquery-2.1.0.min.js"></script>
 
     <!-- <audio src="episoder/media/Bryggen.m4a" autoplay="true"></audio> -->
-    <div id="tekst"><button id="lukk">Lukk</button><h2>Amerikabåten</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-  </div>
+    <div class="tekst" id="baatTekst"><button class="lukk">Lukk</button><h2>Amerikabåten</h2><p>DS Bergensfjord er navnet på skipet du reiser med. Dette er eit dampskip som er heile 156 meter langt. Skipet har plass til 1200 passasjerer.</p></div>
+  <div class="tekst" id="flaggTekst"><button class="lukk">Lukk</button><h2>Noreg</h2><p>Noreg. Landet du har vokse opp i, og der dei fleste i familien din framleis bur. Kjensla av å forlate din einaste og kjæraste heim fyller deg med sorg og spenning. Ad astra per aspera!
+</p></div>
+  <div class="tekst"id="kontorTekst"><button class="lukk">Lukk</button><h2>Kontoret</h2><p>Den norske Amerikalinje sitt kontor. Den store folkemengda gir deg eit inntrykk av at det nå kjem til å ta noko tid for å komme seg inn og signere kontrakten for dei som treng det. Heldigvis har du allereie gjort det.
+</p></div>
+  <div class="tekst" id="barnTekst"><button class="lukk">Lukk</button><h2>Guttegjeng</h2><p>Tre unge gutar står på kaia og stirrer på alle menneska som går forbi. Kanskje venter dei på at foreldra skal komme tilbake frå kontoret til Den Norske Amerikalinje? Eller kanskje dei er pøblar som venter på eit enkelt offer?
+</p></div>
+    </div>
 </section>
 <script>
 $("#bryggenBaat, #bryggenBygning, #bryggenFlagg, #bryggenBarn").hide();
-$("#tekst").hide();
+$(".tekst").hide();
 $("#baatOmraade").click(function() {
-  $("#tekst").toggle();
+  $("#baatTekst").toggle();
 });
-$("#lukk").click(function() {
-  $("#tekst").hide();
+$("#flaggOmraade").click(function() {
+  $("#flaggTekst").toggle();
+});
+$("#barnOmraade").click(function() {
+  $("#barnTekst").toggle();
+});
+$("#kontorOmraade").click(function() {
+  $("#kontorTekst").toggle();
+});
+$(".lukk").click(function() {
+  $(".tekst").hide();
 });
 $("#baatOmraade").mouseover(function() {
   $("#bryggenBaat").show();
@@ -117,12 +132,13 @@ $("#baatOmraade, #kontorOmraade, #flaggOmraade, #barnOmraade").mouseout(function
   transform: rotate(2deg);
   z-index: 2;
 }
-#tekst{
+.tekst{
   position: absolute;
-  top:0;
-  left: 0;
+  top:50;
+  left: calc(25% - 1em);
   z-index:2;
-  background-color: rgba(255, 0, 0, 1);;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
   width: 50%;
   padding: 1em;
 }

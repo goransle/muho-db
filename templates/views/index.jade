@@ -1,7 +1,7 @@
 extends ../layouts/default
 mixin post(post)
-	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		a(href='/galleri/post/' + post.slug): img(src="/images/post/" + post.image.filename)
+	a(style="display: block" href='/galleri/post/' + post.slug): .post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
+		img(src="/images/post/" + post.image.filename)
 		.tekst
 			h3.artikkelTittel: a(href='/galleri/post/' + post.slug)= post.title
 			section.contentBrief
