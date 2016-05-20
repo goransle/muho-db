@@ -1,7 +1,7 @@
 extends ../layouts/default
 mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		img(src="/images/post/" + post.image.filename)
+		a(href='/galleri/post/' + post.slug): img(src="/images/post/" + post.image.filename)
 		.tekst
 			h3.artikkelTittel: a(href='/galleri/post/' + post.slug)= post.title
 			section.contentBrief
@@ -29,23 +29,6 @@ block content
 									+post(post)
 								-i++
 	script.
-		$("section.kategori").click(function(){
-			if($(this).hasClass("wide")){
-				$(this).removeClass("wide");
-				$(this).css("display", "inline-table");
-				$(".visalle").addClass("hidden");
-				$(".banner").show();
-				$("section.kategori > div").not('div.0').hide();
-			}
-			else{
-				$(this).addClass("wide");
-				$(this).css("display", "block");
-				$(".visalle").removeClass("hidden");
-				$(".banner").hide();
-				$("section.kategori > div").not('div.0').show()
-			}
-			$(this).siblings().toggle();
-		});
 		$(".banner").click(function(){
 			window.location.href = ("./kartlinje/");
 		});
